@@ -1,0 +1,139 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* OMEV — Raw industrial × electric future. Cream-dominant, black-heavy, neon-green accents. */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-cream-watermark: var(--cream-watermark);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-volt: var(--volt);
+  --color-volt-deep: var(--volt-deep);
+  --color-paper: var(--paper);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --font-display: "Bebas Neue", "Oswald", system-ui, sans-serif;
+  --font-condensed: "Oswald", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-product: 0 40px 80px -20px rgba(10, 10, 10, 0.25), 0 12px 24px -8px rgba(10, 10, 10, 0.15);
+  --shadow-card: 0 18px 40px -18px rgba(10, 10, 10, 0.18);
+  --shadow-lift: 0 30px 60px -24px rgba(10, 10, 10, 0.35);
+}
+
+:root {
+  --cream: oklch(0.953 0.018 85);
+  --cream-soft: oklch(0.97 0.012 85);
+  --cream-watermark: oklch(0.91 0.018 85);
+  --ink: oklch(0.16 0 0);
+  --ink-soft: oklch(0.28 0 0);
+  --volt: oklch(0.82 0.24 145);
+  --volt-deep: oklch(0.72 0.22 145);
+  --paper: oklch(1 0 0);
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--cream-soft);
+  --secondary-foreground: var(--ink);
+  --muted: var(--cream-soft);
+  --muted-foreground: oklch(0.45 0.01 85);
+  --accent: var(--volt);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: var(--paper);
+  --border: oklch(0.86 0.02 85);
+  --input: oklch(0.86 0.02 85);
+  --ring: var(--ink);
+  --radius: 0.25rem;
+}
+
+.dark { /* unused — site is light-cream */ }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { background-color: var(--cream); color: var(--ink); }
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    cursor: none;
+  }
+  ::selection { background: var(--volt); color: var(--ink); }
+}
+
+/* Outlined display text — used for watermarks & marquee */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+}
+@utility text-outline-thick {
+  color: transparent;
+  -webkit-text-stroke: 2.5px currentColor;
+}
+
+/* Tight industrial display */
+@utility font-display-tight {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+@utility tracked {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Magnetic / hover-capable surfaces target this for cursor */
+[data-cursor="view"], [data-cursor="go"], [data-cursor="drag"], a, button, [role="button"], input, textarea, select { cursor: none; }
+
+@media (max-width: 768px) {
+  body, a, button, input { cursor: auto; }
+}
+/* Force normal cursor everywhere */
+* {
+  cursor: auto !important;
+}
+a, button, [role="button"], input, textarea, select, label, [onclick] {
+  cursor: pointer !important;
+}
+
+/* Hide any fixed-position cursor elements */
+div[style*="pointer-events: none"][style*="position: fixed"],
+[class*="cursor-dot"],
+[class*="cursor-ring"],
+[class*="custom-cursor"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+} 
