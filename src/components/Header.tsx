@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import logoImg from "@/assets/omev-logo.jpg"; // or .svg, .jpg — adjust to your actual logo file
 
 const nav = [
   { to: "/", label: "Home" },
@@ -12,6 +13,7 @@ const nav = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 20);
     on();
@@ -26,11 +28,17 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-5 md:h-20 md:px-10">
+        {/* Logo */}
         <Link to="/" className="group flex items-center gap-2" data-cursor="go">
-          <span className="font-display-tight text-3xl md:text-4xl text-ink">OMEV</span>
+          <img
+            src={logoImg}
+            alt="OMEV"
+            className="h-14 md:h-16 w-auto object-contain"
+          />
           <span className="hidden md:inline-block h-2 w-2 rounded-full bg-volt group-hover:scale-150 transition-transform" />
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {nav.map((n) => (
             <NavLink
@@ -49,6 +57,7 @@ export function Header() {
           ))}
         </nav>
 
+        {/* CTA Button */}
         <Link
           to="/test-ride"
           data-cursor="go"
@@ -58,6 +67,7 @@ export function Header() {
           <span className="h-1.5 w-1.5 rounded-full bg-volt" />
         </Link>
 
+        {/* Mobile Menu Button */}
         <button
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
@@ -69,6 +79,7 @@ export function Header() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-cream border-t border-ink/10">
           <nav className="flex flex-col px-5 py-6 gap-4">

@@ -298,12 +298,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-[1500px] px-5 md:px-10">
-          <Reveal>
-            <div className="flex items-center gap-6 mb-16 md:mb-20">
-              <p className="text-[11px] tracked text-volt font-bold shrink-0">02 — Why OMEV</p>
-              <div className="h-px flex-1 bg-paper/10" />
-            </div>
-          </Reveal>
+         
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
             <div className="md:col-span-6">
@@ -464,12 +459,7 @@ function HowItWorks() {
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 md:px-10">
         {/* Header */}
-        <Reveal>
-          <div className="flex items-center gap-6 mb-16 md:mb-24">
-            <p className="text-[11px] tracked text-volt-deep font-bold shrink-0">04 — How It Works</p>
-            <div className="h-px flex-1 bg-ink/10" />
-          </div>
-        </Reveal>
+    
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           {/* Left: Sticky title */}
@@ -606,13 +596,7 @@ function ImpactCounter() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1500px] px-5 md:px-10">
-        {/* Header */}
-        <Reveal>
-          <div className="flex items-center gap-6 mb-16 md:mb-24">
-            <p className="text-[11px] tracked text-volt font-bold shrink-0">05 — The Real Math</p>
-            <div className="h-px flex-1 bg-paper/10" />
-          </div>
-        </Reveal>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20 md:gap-y-28">
           {stats.map((stat, i) => (
