@@ -88,10 +88,7 @@ export default function Home() {
   </div>
 
   {/* Scroll indicator */}
-  <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] tracked text-ink/60">
-    <span>Scroll</span>
-    <span className="h-6 md:h-8 w-px bg-ink/40 animate-pulse" />
-  </div>
+
 
   <style>{`@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }`}</style>
 </section>
