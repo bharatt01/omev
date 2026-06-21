@@ -22,71 +22,79 @@ const links = [{ rel: "canonical", href: "/" }];
 export default function Home() {
   return (
     <>
-      <PageHead title="OMEV — Built in Lakhimpur. Built for Bharat." meta={meta} links={links} />
-      {/* HERO — shifted up by -2rem */}
-      <section className="relative overflow-hidden bg-cream min-h-[100vh] flex items-center -mt-8">
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
-          <span className="text-outline-thick font-display-tight text-cream-watermark text-[42vw] leading-none">
-            OMEV
-          </span>
-        </div>
+ <PageHead title="OMEV — Built in Lakhimpur. Built for Bharat." meta={meta} links={links} />
 
-        <div className="relative z-10 mx-auto grid w-full max-w-[1500px] grid-cols-1 items-center gap-8 px-5 py-20 md:grid-cols-12 md:gap-6 md:px-10 md:py-32">
-          <div className="md:col-span-5">
-            <Reveal>
-              <p className="text-[11px] tracked text-volt-deep font-bold mb-6">Lakhimpur · Uttar Pradesh · India</p>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="font-display-tight text-ink text-[16vw] md:text-[7.5vw] leading-[0.85]">
-                BUILT IN<br />LAKHIMPUR.
-              </h1>
-            </Reveal>
-            <Reveal delay={180}>
-              <h2 className="font-display-tight text-[16vw] md:text-[7.5vw] leading-[0.85] text-volt-deep">
-                BUILT FOR<br />BHARAT.
-              </h2>
-            </Reveal>
-            <Reveal delay={300}>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Link
-                  to="/products"
-                  className="inline-flex items-center gap-3 bg-ink px-7 py-4 text-[12px] tracked font-bold text-paper hover:bg-volt hover:text-ink transition-colors"
-                >
-                  Explore Fleet
-                  <span className="h-1.5 w-1.5 rounded-full bg-volt" />
-                </Link>
-                <Link
-                  to="/test-ride"
-                  className="inline-flex items-center gap-3 bg-volt px-7 py-4 text-[12px] tracked font-bold text-ink hover:bg-ink hover:text-volt transition-colors"
-                >
-                  Book Test Ride
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+{/* HERO — Properly spaced for fixed navbar */}
+<section className="relative overflow-hidden bg-cream min-h-[100dvh] flex items-center pt-8 md:pt-10">
+  {/* Background watermark */}
+  <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+    <span className="text-outline-thick font-display-tight text-cream-watermark text-[42vw] md:text-[35vw] leading-none">
+      OMEV
+    </span>
+  </div>
 
-          <div className="md:col-span-7 relative">
-            <Reveal delay={250}>
-              <div className="relative">
-                <img
-                  src={heroScooter}
-                  alt="OMEV electric scooter"
-                  width={1600}
-                  height={1280}
-                  className="w-full h-auto object-contain animate-[bob_4s_ease-in-out_infinite]"
-                />
-                <div className="absolute -bottom-2 left-1/4 right-1/4 h-8 rounded-full bg-ink/20 blur-2xl" />
-              </div>
-            </Reveal>
-          </div>
+  <div className="relative z-10 mx-auto grid w-full max-w-[1500px] grid-cols-1 items-center gap-6 px-5 py-12 md:grid-cols-12 md:gap-6 md:px-10 md:py-20 lg:py-28">
+    {/* Left: Text */}
+    <div className="md:col-span-5 order-2 md:order-1">
+      <Reveal>
+        <p className="text-[10px] md:text-[11px] tracked text-volt-deep font-bold mb-4 md:mb-6">
+          Lakhimpur · Uttar Pradesh · India
+        </p>
+      </Reveal>
+      <Reveal delay={80}>
+        <h1 className="font-display-tight text-ink text-[14vw] sm:text-[12vw] md:text-[7.5vw] leading-[0.85]">
+          BUILT IN<br />LAKHIMPUR.
+        </h1>
+      </Reveal>
+      <Reveal delay={180}>
+        <h2 className="font-display-tight text-[14vw] sm:text-[12vw] md:text-[7.5vw] leading-[0.85] text-volt-deep">
+          BUILT FOR<br />BHARAT.
+        </h2>
+      </Reveal>
+      <Reveal delay={300}>
+        <div className="mt-6 md:mt-10 flex flex-wrap gap-3">
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-2 md:gap-3 bg-ink px-5 py-3 md:px-7 md:py-4 text-[11px] md:text-[12px] tracked font-bold text-paper hover:bg-volt hover:text-ink transition-colors"
+          >
+            Explore Fleet
+            <span className="h-1.5 w-1.5 rounded-full bg-volt" />
+          </Link>
+          <Link
+            to="/test-ride"
+            className="inline-flex items-center gap-2 md:gap-3 bg-volt px-5 py-3 md:px-7 md:py-4 text-[11px] md:text-[12px] tracked font-bold text-ink hover:bg-ink hover:text-volt transition-colors"
+          >
+            Book Test Ride
+          </Link>
         </div>
+      </Reveal>
+    </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] tracked text-ink/60">
-          <span>Scroll</span>
-          <span className="h-8 w-px bg-ink/40 animate-pulse" />
+    {/* Right: Image */}
+    <div className="md:col-span-7 relative order-1 md:order-2">
+      <Reveal delay={250}>
+        <div className="relative">
+          <img
+            src={heroScooter}
+            alt="OMEV electric scooter"
+            width={1600}
+            height={1280}
+            className="w-full h-auto max-h-[50vh] md:max-h-none object-contain animate-[bob_4s_ease-in-out_infinite]"
+          />
+          <div className="absolute -bottom-2 left-1/4 right-1/4 h-6 md:h-8 rounded-full bg-ink/20 blur-2xl" />
         </div>
-        <style>{`@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }`}</style>
-      </section>
+      </Reveal>
+    </div>
+  </div>
+
+  {/* Scroll indicator */}
+  <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[10px] tracked text-ink/60">
+    <span>Scroll</span>
+    <span className="h-6 md:h-8 w-px bg-ink/40 animate-pulse" />
+  </div>
+
+  <style>{`@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }`}</style>
+</section>
 
       {/* MARQUEE */}
       
